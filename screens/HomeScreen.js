@@ -14,6 +14,7 @@ import Logo from "../components/Logo";
 import Course from "../components/Course";
 import Menu from "../components/Menu";
 import { connect } from "react-redux";
+import Avatar from "../components/Avatar";
 
 function mapStateToPros(state) {
   return {
@@ -92,7 +93,7 @@ class HomeScreen extends React.Component {
                   onPress={this.props.openMenu}
                   style={{ position: "absolute", top: 0, left: 0 }}
                 >
-                  <Avatar source={require("../assets/avatar.jpg")} />
+                  <Avatar />
                 </TouchableOpacity>
                 <Title>Welcome back,</Title>
                 <Name>Meng</Name>
@@ -172,14 +173,6 @@ const Subtitle = styled.Text`
   margin-left: 20px;
   margin-top: 10px;
   text-transform: uppercase;
-`;
-
-const Avatar = styled.Image`
-  width: 44px;
-  height: 44px;
-  background: black;
-  border-radius: 22px;
-  margin-left: 20px;
 `;
 
 const Container = styled.View`
