@@ -9,7 +9,7 @@ function mapStateToProps(state) {
   return { action: state.action };
 }
 
-function mapDispatchToPros(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     closeMenu: () =>
       dispatch({
@@ -18,7 +18,7 @@ function mapDispatchToPros(dispatch) {
   };
 }
 
-const screenHeight = Dimensions.get("window").height;
+const screenHeight = Dimensions.get("window").height + 100;
 
 class Menu extends React.Component {
   state = {
@@ -84,7 +84,7 @@ class Menu extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToPros)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 const Image = styled.Image`
   position: absolute;
