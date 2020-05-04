@@ -154,6 +154,7 @@ class HomeScreen extends React.Component {
                       caption={card.caption}
                       logo={card.logo}
                       subtitle={card.subtitle}
+                      content={card.content}
                     />
                   </TouchableOpacity>
                 ))}
@@ -256,6 +257,8 @@ const cards = [
     subtitle: "React Native",
     caption: "1 of 12 sections",
     logo: require("../assets/logo-react.png"),
+    content:
+      "Styled components allow you to take your CSS to the next level. Not only does it allow you to nest your CSS like in SCSS, but it also gives you the power to use javascript and transfer Props to your CSS, making it super customizable.<h2>Downloads</h2><p>Feel free to use your own designs and apply your own styling. You can also use my design if you wish to follow exactly what I have. You can access all the React files and images here.</p>",
   },
   {
     title: "Styled Components",
@@ -263,6 +266,8 @@ const cards = [
     subtitle: "React Native",
     caption: "2 of 12 sections",
     logo: require("../assets/logo-react.png"),
+    content:
+      "Styled components allow you to take your CSS to the next level. Not only does it allow you to nest your CSS like in SCSS, but it also gives you the power to use javascript and transfer Props to your CSS, making it super customizable.",
   },
   {
     title: "Props and Icons",
@@ -270,6 +275,8 @@ const cards = [
     subtitle: "React Native",
     caption: "3 of 12 sections",
     logo: require("../assets/logo-react.png"),
+    content:
+      "Styled components allow you to take your CSS to the next level. Not only does it allow you to nest your CSS like in SCSS, but it also gives you the power to use javascript and transfer Props to your CSS, making it super customizable.",
   },
   {
     title: "Static Data and Loop",
@@ -277,6 +284,8 @@ const cards = [
     subtitle: "React Native",
     caption: "4 of 12 sections",
     logo: require("../assets/logo-react.png"),
+    content:
+      "Styled components allow you to take your CSS to the next level. Not only does it allow you to nest your CSS like in SCSS, but it also gives you the power to use javascript and transfer Props to your CSS, making it super customizable.",
   },
 ];
 
