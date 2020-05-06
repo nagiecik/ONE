@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { AsyncStorage } from "react-native";
 
 function mapStateToProps(state) {
-  return { action: state.action };
+  return { action: state.action, name: state.name };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -74,7 +74,7 @@ class Menu extends React.Component {
       <AnimatedContainer style={{ top: this.state.top }}>
         <Cover>
           <Image source={require("../assets/background2.jpg")} />
-          <Title>Meng To</Title>
+          <Title>{this.props.name}</Title>
           <Subtitle>Designer at Design+Code</Subtitle>
         </Cover>
         <TouchableOpacity
@@ -158,7 +158,7 @@ const Cover = styled.View`
 `;
 
 const Content = styled.View`
-  height: ${screenHeight};
+  height: ${screenHeight}px;
   background: #f0f3f5;
   padding: 50px;
 `;

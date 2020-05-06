@@ -6,6 +6,7 @@ import SectionScreen from "../screens/SectionScreen";
 import { Ionicons } from "@expo/vector-icons";
 import CoursesScreen from "../screens/CoursesScreen";
 import ProjectsScreen from "../screens/ProjectsScreen";
+import VideoScreen from "../screens/VideoScreen";
 
 const activeColor = "#4775f2";
 const inactiveColor = "#b8bece";
@@ -14,6 +15,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Section: SectionScreen,
+    Video: VideoScreen,
   },
   {
     mode: "modal",
@@ -24,7 +26,7 @@ HomeStack.navigationOptions = ({ navigation }) => {
   let tabBarVisible;
   if (navigation.state.routes.length > 1) {
     navigation.state.routes.map((route) => {
-      if (route.routeName === "Section") {
+      if (route.routeName === "Section" || route.routeName === "Video") {
         tabBarVisible = false;
       } else {
         tabBarVisible = true;

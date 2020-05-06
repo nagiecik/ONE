@@ -17,6 +17,8 @@ import { connect } from "react-redux";
 import Avatar from "../components/Avatar";
 import ModalLogin from "../components/ModaLogin";
 import Success from "../components/Success";
+import NotificationButton from "../components/NotificationButton";
+import Notifications from "../components/Notifications";
 
 function mapStateToPros(state) {
   return {
@@ -34,6 +36,10 @@ function mapDispatchToProps(dispatch) {
     openLogin: () =>
       dispatch({
         type: "OPEN_LOGIN",
+      }),
+    openNotif: () =>
+      dispatch({
+        type: "OPEN_NOTIF",
       }),
   };
 }
@@ -94,6 +100,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <RootView>
+        <Notifications />
         <Menu />
         <AnimatedContainer
           style={{
@@ -115,9 +122,12 @@ class HomeScreen extends React.Component {
                 </TouchableOpacity>
                 <Title>Welcome back,</Title>
                 <Name>{this.props.name}</Name>
-                <NotificationIcon
+                <TouchableOpacity
+                  onPress={() => this.props.openNotif()}
                   style={{ position: "absolute", right: 20, top: 5 }}
-                />
+                >
+                  <NotificationButton />
+                </TouchableOpacity>
               </TitleBar>
               <ScrollView
                 contentContainerStyle={{
