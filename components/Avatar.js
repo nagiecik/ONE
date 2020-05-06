@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { AsyncStorage } from "react-native";
 
 function mapStateToProps(state) {
   return {
     name: state.name,
+    avatar: state.avatar,
   };
 }
 
@@ -16,34 +18,33 @@ function mapDispatchToProps(dispatch) {
         name: name,
       });
     },
+    updateAvatar: (avatar) =>
+      dispatch({
+        type: "UPDATE_AVATAR",
+        avatar,
+      }),
   };
 }
 
 class Avatar extends React.Component {
-  state = {
-    photo: "https://cl.ly/55da82beb939/download/avatar-default.jpg",
-  };
-
   componentDidMount() {
-    fetch("https://uifaces.co/api?limit=1", {
-      headers: new Headers({
-        "X-API-KEY": "2a795dc81bcc21a34565cb88c8ca5f",
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-
-        this.setState({
-          photo: response[0].photo,
-        });
-
-        this.props.updateName(response[0].name);
-      });
+    this.loadState();
   }
 
+  loadState = () => {
+    AsyncStorage.getItem("state").then((serializedState) => {
+      const state = JSON.parse(serializedState);
+      console.log(state);
+
+      if (state) {
+        this.props.updateName(state.name);
+        this.props.updateAvatar(state.avatar);
+      }
+    });
+  };
+
   render() {
-    return <Image source={{ uri: this.state.photo }} />;
+    return <Image source={{ uri: this.props.avatar }} />;
   }
 }
 

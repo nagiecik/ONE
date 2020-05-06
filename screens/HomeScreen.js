@@ -15,6 +15,8 @@ import Course from "../components/Course";
 import Menu from "../components/Menu";
 import { connect } from "react-redux";
 import Avatar from "../components/Avatar";
+import ModalLogin from "../components/ModaLogin";
+import Success from "../components/Success";
 
 function mapStateToPros(state) {
   return {
@@ -28,6 +30,10 @@ function mapDispatchToProps(dispatch) {
     openMenu: () =>
       dispatch({
         type: "OPEN_MENU",
+      }),
+    openLogin: () =>
+      dispatch({
+        type: "OPEN_LOGIN",
       }),
   };
 }
@@ -77,6 +83,14 @@ class HomeScreen extends React.Component {
     }
   };
 
+  handleAvatar = () => {
+    if (this.props.name !== "Stranger") {
+      this.props.openMenu();
+    } else {
+      this.props.openLogin();
+    }
+  };
+
   render() {
     return (
       <RootView>
@@ -94,7 +108,7 @@ class HomeScreen extends React.Component {
             >
               <TitleBar>
                 <TouchableOpacity
-                  onPress={this.props.openMenu}
+                  onPress={this.handleAvatar}
                   style={{ position: "absolute", top: 0, left: 0 }}
                 >
                   <Avatar />
@@ -175,6 +189,7 @@ class HomeScreen extends React.Component {
             </ScrollView>
           </SafeAreaView>
         </AnimatedContainer>
+        <ModalLogin />
       </RootView>
     );
   }

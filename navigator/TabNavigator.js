@@ -76,8 +76,8 @@ ProjectsStack.navigationOptions = {
 };
 
 const TabNavigator = createBottomTabNavigator({
-  ProjectsStack,
   HomeStack,
+  ProjectsStack,
   CoursesStack,
 });
 
